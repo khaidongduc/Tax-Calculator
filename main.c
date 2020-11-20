@@ -37,7 +37,7 @@ void input(double *income, char *pensionContribution, char *healthInsurance,
         getInput(validateYN, "Pension contributions (5%) y/n?",
                  "You must press 'y' or 'n' only, try again")[0];
 
-    *healthInsurance = getInput(validateYN, "Pension contributions (5%) y/n?",
+    *healthInsurance = getInput(validateYN, "Health Insurance (1%) y/n?",
                                 "You must press 'y' or 'n' only, try again")[0];
 
     *numDependant = atoi(getInput(
