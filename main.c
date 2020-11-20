@@ -27,6 +27,17 @@ double getTax(double income) {
 #define DEPENDANT_COST 1600.0
 #define ALLOWANCE 4000.0
 
+char *askPensionMsg, *askHealthMsg;
+void formatAskMsg() {
+    askPensionMsg = (char *) malloc(37);
+    sprintf(askPensionMsg, "Pension Contributions (%.1f%%) (y/n)",
+            RATE_PENSION * 100.0);
+    askHealthMsg = (char *) malloc(37);
+    sprintf(askHealthMsg, "Health Insurance (%.1f%%) (y/n)",
+            RATE_HEALTH * 100.0);
+    return;
+}
+
 void input(double *income, char *pensionContribution, char *healthInsurance,
            int *numDependant, double *charity) {
     printf("Enter personal information <in thousand VND>\n");
@@ -34,10 +45,10 @@ void input(double *income, char *pensionContribution, char *healthInsurance,
                             "Invalid input, try again."));
 
     *pensionContribution =
-        getInput(validateYN, "Pension contributions (5%) y/n?",
+        getInput(validateYN, askPensionMsg,
                  "You must press 'y' or 'n' only, try again")[0];
 
-    *healthInsurance = getInput(validateYN, "Health Insurance (1%) y/n?",
+    *healthInsurance = getInput(validateYN, askHealthMsg,
                                 "You must press 'y' or 'n' only, try again")[0];
 
     *numDependant = atoi(getInput(
@@ -89,7 +100,7 @@ int main() {
     double income, charity;
     int numDependant;
     char pensionContribution, healthInsurance;
-
+    formatAskMsg();
     setBufferSize(BUFFSIZE);
     while (true) {
         input(&income, &pensionContribution, &healthInsurance, &numDependant,
