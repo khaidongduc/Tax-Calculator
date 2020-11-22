@@ -26,7 +26,8 @@ bool validateDouble(char *buffer) {
     int length = strlen(buffer);
     int dotCount = 0;
     for (int i = 0; i < length - 1; ++i) {
-        if (('0' > buffer[i] || buffer[i] > '9') && buffer[i] != '.') return false;
+        if (('0' > buffer[i] || buffer[i] > '9') && buffer[i] != '.')
+            return false;
         dotCount += (buffer[i] == '.');
     }
     return (dotCount <= 1);
