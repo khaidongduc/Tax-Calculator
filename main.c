@@ -32,7 +32,7 @@ void formatAskMsg() {
     askPensionMsg = (char *) malloc(37);
     sprintf(askPensionMsg, "Pension Contributions (%.1f%%) (y/n)",
             RATE_PENSION * 100.0);
-    askHealthMsg = (char *) malloc(37);
+    askHealthMsg = (char *) malloc(32);
     sprintf(askHealthMsg, "Health Insurance (%.1f%%) (y/n)",
             RATE_HEALTH * 100.0);
     return;
