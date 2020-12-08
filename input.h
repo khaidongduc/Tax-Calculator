@@ -11,7 +11,7 @@ int buffsize;
  * @param size the size of the buffer
  */
 void setBufferSize(int size) {
-    buffer = (char *)malloc(size);
+    buffer = (char *)malloc(size * sizeof(char));
     buffsize = size;
 }
 
